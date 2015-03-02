@@ -12,23 +12,59 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+	<phone:PhoneApplicationPage.Resources>
+		
+     
+        <DataTemplate x:Key="veneTemplate">
+        	        <Grid Height="179" Width="430" Margin="0,0,0,22">
+                <Rectangle HorizontalAlignment="Left" Height="179" Margin="1,0,-1,0" VerticalAlignment="Top" Width="430" Fill="#2315E400"/>
+                <TextBlock x:Name="p_Name" Text="{Binding name}" FontSize="32" Margin="0,0,0,137" Foreground="White"/>
+                <TextBlock x:Name="p_Country" Text="{Binding country}" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="21.333" Width="210" Margin="0,43,0,0" Foreground="White"/>
+                <TextBlock x:Name="p_City" Text="{Binding city}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,49,10,0" Width="184" Foreground="White"/>
+                <TextBlock x:Name="p_Phone" Text="{Binding contact}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,81,-1,0" Foreground="White"/>
+                <Ellipse HorizontalAlignment="Left" Height="43" Margin="363,6,0,0" VerticalAlignment="Top" Width="43" Fill="#FF5D5D00"/>
+                <TextBlock x:Name="p_Distance" Text="{Binding distance}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="369,6,0,0" FontSize="29.333" Foreground="White"/>
+                <TextBlock x:Name="p_Url" Text="{Binding url}" Margin="1,113,-1,40" Foreground="White"/>
+                <Rectangle HorizontalAlignment="Left" Height="35" Margin="0,144,-1,0" VerticalAlignment="Top" Width="431">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF875A0C" Offset="0"/>
+                            <GradientStop Color="#FFFDCF02" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock Text="{Binding checkinsCount}" Margin="6,144,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.464,0.419" Height="35" FontSize="26.667" FontWeight="Bold" Foreground="#FF363636"/>
+                <TextBlock x:Name="p_checkins" HorizontalAlignment="Left" Height="25" Margin="50,151,0,0" TextWrapping="Wrap" Text=" CheckIn" VerticalAlignment="Top" Width="77" Foreground="Black"/>
+                <TextBlock HorizontalAlignment="Left" Height="29" Margin="409,27,-8,0" TextWrapping="Wrap" Text="km" VerticalAlignment="Top" Width="29" Foreground="White" FontSize="13.333"/>
+            </Grid>
+        </DataTemplate>
+        
+        
+	</phone:PhoneApplicationPage.Resources>
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    
+    
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
         <!--Pivot Control-->
         <phone:Pivot Title="GYMNASIO">
-            <!--Pivot item one-->
-            <phone:PivotItem Header="community">
-                <Grid/>
+
+            <phone:PivotItem x:Name="Community" Header="community">
+                <Grid>
+                </Grid>
             </phone:PivotItem>
 
-            <!--Pivot item two-->
-            <phone:PivotItem Header="tips+articles">
+     
+            <phone:PivotItem x:Name="Articles" Header="tips+articles">
                 <Grid/>
             </phone:PivotItem>
             
-            <phone:PivotItem Header="nearby">
-                <Grid/>
+            <phone:PivotItem x:Name="NearBy" Header="nearby">
+                <Grid>
+                    <!--Here is the View of NearbyParks-->
+		    <ListBox x:Name="lbx_nearby" HorizontalAlignment="Left" Height="593" ItemTemplate="{StaticResource veneTemplate}"  Margin="10,0,0,0" VerticalAlignment="Top" Width="436"/>
+             
+                </Grid>
             </phone:PivotItem>
             
         </phone:Pivot>
