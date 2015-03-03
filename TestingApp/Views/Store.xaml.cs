@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using TestingApp.ViewModels;
 
 namespace TestingApp.Views
 {
@@ -15,6 +16,8 @@ namespace TestingApp.Views
         public Store()
         {
             InitializeComponent();
+            this.DataContext = new StorePageView_Model();
+            
         }
     }
 }
