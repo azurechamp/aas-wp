@@ -103,6 +103,8 @@
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\NearyByJson.cs" />
     <Compile Include="Models\RootParks.cs" />
+    <Compile Include="Models\RootStore.cs" />
+    <Compile Include="ViewModels\StorePageView Model.cs" />
     <Compile Include="Views\ExerciseSession.xaml.cs">
       <DependentUpon>ExerciseSession.xaml</DependentUpon>
     </Compile>
@@ -288,7 +290,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
