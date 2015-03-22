@@ -5,6 +5,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
     x:Class="TestingApp.MainHub"
     mc:Ignorable="d"
@@ -36,6 +37,18 @@
                 <TextBlock HorizontalAlignment="Left" Height="29" Margin="409,27,-8,0" TextWrapping="Wrap" Text="km" VerticalAlignment="Top" Width="29" Foreground="White" FontSize="13.333"/>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="ItemTemplate">
+        	<Grid Height="342" Width="208" Background="#FFFF8000" Margin="0,10,10,0">
+        		<Rectangle Fill="#FF3C3C3C" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="214"/>
+                <Image Source="{Binding image}" HorizontalAlignment="Left" Width="199" Margin="5,0,0,208" Stretch="UniformToFill"/>
+                <TextBlock x:Name="title" Text="{Binding title}" Foreground="White" FontSize="18.667" TextWrapping="Wrap" FontWeight="Bold" Margin="6,138,3,153"/>
+        		<TextBlock x:Name="source" Text="{Binding source}" FontSize="13.333" Foreground="#FF323232" Margin="5,191,4,136" FontWeight="Bold"/>
+        		<TextBlock x:Name="disc" Text="{Binding disc}" TextWrapping="Wrap" Foreground="#FF464646" TextTrimming="WordEllipsis" Margin="6,221,4,0"/>
+        	</Grid>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+        	<toolkit:WrapPanel/>
+        </ItemsPanelTemplate>
 
 
     </phone:PhoneApplicationPage.Resources>
@@ -74,7 +87,8 @@
 
 
             <phone:PivotItem x:Name="Articles" Header="tips+articles">
-                <Grid/>
+                <Grid>
+                	<ListBox x:Name="lbx_articles" HorizontalAlignment="Left" Height="569" ItemTemplate="{StaticResource ItemTemplate}"  Margin="10,24,0,0" VerticalAlignment="Top" Width="436" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/></Grid>
             </phone:PivotItem>
 
             <phone:PivotItem x:Name="NearBy" Header="nearby">

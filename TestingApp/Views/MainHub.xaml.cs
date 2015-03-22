@@ -19,6 +19,7 @@ namespace TestingApp
     {
         //Declarations of Observable Collections for ViewBinding
         ObservableCollection<vene> obs_NearbyParks = new ObservableCollection<vene>();
+        ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
         //End
       
        
@@ -27,6 +28,7 @@ namespace TestingApp
         {
             InitializeComponent();
             GetNearbyParks();
+            GetArticlesData();
 
 
             //Listbox Selection Changed Events
@@ -51,10 +53,39 @@ namespace TestingApp
           bmt.Show();
             
         }
-        
-        
+
+
+        void GetArticlesData() 
+        {
+            try
+            {
+                WebClient wc_Articles = new WebClient();
+
+                //Passing Dummy Location Right Now (3/3/2015)
+                wc_Articles.DownloadStringAsync(new Uri("http://hello987.azurewebsites.net/art.html"));
+                wc_Articles.DownloadStringCompleted+=wc_Articles_DownloadStringCompleted;
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("ErrorLoadingData!");
+            }
+        }
+
+        private void wc_Articles_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            var rootObject = JsonConvert.DeserializeObject<RootArticles>(e.Result);
+            foreach (Article act in rootObject.Articles) 
+            {
+                obs_Articles.Add(act);
+            }
+
+            lbx_articles.ItemsSource = obs_Articles;
+        }
+
+
         //Gets Nearby Parks JSON DATA 
-        public void GetNearbyParks()
+         void GetNearbyParks()
         {
             try
             {
