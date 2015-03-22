@@ -16,12 +16,14 @@ using System.Device.Location;
 namespace TestingApp
 {
     public partial class MainHub : PhoneApplicationPage
-    {
-        //Declarations of Observable Collections for ViewBinding
+    { 
+        
+#region Decrarations
+
         ObservableCollection<vene> obs_NearbyParks = new ObservableCollection<vene>();
         ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
-        //End
-      
+        
+#endregion
        
 
         public MainHub()
@@ -31,13 +33,11 @@ namespace TestingApp
             GetArticlesData();
 
 
-            //Listbox Selection Changed Events
             lbx_nearby.SelectionChanged += lbx_nearby_SelectionChanged;
-            //END
         }
 
 
-
+       
         //NearbyPark SelectionChanged Routed Event
         void lbx_nearby_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -54,7 +54,7 @@ namespace TestingApp
             
         }
 
-
+        #region JSON data
         void GetArticlesData() 
         {
             try
@@ -124,5 +124,6 @@ namespace TestingApp
 
             lbx_nearby.ItemsSource = obs_NearbyParks;
         }
+        #endregion
     }
 }
