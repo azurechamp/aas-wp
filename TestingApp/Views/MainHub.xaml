@@ -78,7 +78,7 @@
                     <Button Content="click" Margin="203,277,134,239">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <ec:NavigateToPageAction TargetPage="/Views/Store.xaml"/>
+                                <ec:NavigateToPageAction TargetPage="/Views/ExerciseSession.xaml"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>

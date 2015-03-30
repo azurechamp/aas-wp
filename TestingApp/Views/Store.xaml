@@ -20,7 +20,7 @@
 					<TextBlock x:Name="health" Text="{Binding health}" HorizontalAlignment="Left" Height="28" Margin="24,183,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="75" Foreground="#FFF11111" FontWeight="Bold"/>
 					<TextBlock x:Name="stars" Text="{Binding stars}" HorizontalAlignment="Left" Height="28" Margin="127,183,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="75" Foreground="#FFF0C400" FontWeight="Bold"/>
 				
-			</Grid>
+			</Grid> 
 		
 					                            
 		</DataTemplate>
