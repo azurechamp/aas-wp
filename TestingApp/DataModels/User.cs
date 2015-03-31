@@ -9,13 +9,11 @@ namespace TestingApp.DataModels
 {
     public class User
     {
+        [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
-        [JsonProperty(PropertyName = "petname")]
-        public string PetName { get; set; }
+        [JsonProperty(PropertyName = "username")]
+        public string UserName { get; set; }
 
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
@@ -23,14 +21,7 @@ namespace TestingApp.DataModels
         [JsonProperty(PropertyName = "password")]
         public string Password { get; set; }
 
-        [JsonProperty(PropertyName = "age")]
-        public int Age { get; set; }
-
-        [JsonProperty(PropertyName = "height")]
-        public double Height { get; set; }
-
-        [JsonProperty(PropertyName = "weight")]
-        public double Weight { get; set; }
-
+        [JsonProperty(PropertyName = "_deleted")]
+        public bool isDeleted { get; set; }
     }
 }

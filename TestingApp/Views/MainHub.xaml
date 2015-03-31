@@ -75,13 +75,22 @@
 
             <phone:PivotItem x:Name="Community" Header="community">
                 <Grid>
-                    <Button Content="click" Margin="203,277,134,239">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <ec:NavigateToPageAction TargetPage="/Views/ExerciseSession.xaml"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </Button>
+                <!--Yaha par Xaml copy karni ha -Abeer-->
+                    <ListBox x:Name="lbx_Posts">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding PostTitle }" Style="{StaticResource PhoneTextLargeStyle}" ></TextBlock>
+                                    <TextBlock Text="{Binding PostDisc}" Style="{StaticResource PhoneTextNormalStyle}" Height="76" Foreground="#FF898989" TextWrapping="Wrap" ></TextBlock>
+                                    <Rectangle Height="7" Fill="#FFFBC50B"></Rectangle>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+                    
+
+
                 </Grid>
             </phone:PivotItem>
 
@@ -95,6 +104,18 @@
                 <Grid>
                     <!--Here is the View of NearbyParks-->
                     <ListBox x:Name="lbx_nearby" HorizontalAlignment="Left" Height="593" ItemTemplate="{StaticResource veneTemplate}"  Margin="10,0,0,0" VerticalAlignment="Top" Width="436"/>
+
+                </Grid>
+            </phone:PivotItem>
+            <phone:PivotItem x:Name="pvt_launchingpad" Header="Launch Pad">
+                <Grid>
+                    <Button Content="click" Margin="203,277,134,239">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <ec:NavigateToPageAction TargetPage="/Views/ExerciseSession.xaml"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
 
                 </Grid>
             </phone:PivotItem>

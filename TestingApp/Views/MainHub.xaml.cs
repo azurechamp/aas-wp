@@ -12,6 +12,9 @@ using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using Microsoft.Phone.Tasks;
 using System.Device.Location;
+using Microsoft.WindowsAzure.MobileServices;
+using TestingApp.DataModels;
+using System.Threading.Tasks;
 
 namespace TestingApp
 {
@@ -22,7 +25,10 @@ namespace TestingApp
 
         ObservableCollection<vene> obs_NearbyParks = new ObservableCollection<vene>();
         ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
-        
+        private MobileServiceCollection<Post, Post> items;
+        private IMobileServiceTable<Post> todoTable = App.MobileService.GetTable<Post>();
+     
+
 #endregion
        
 
@@ -36,8 +42,66 @@ namespace TestingApp
             lbx_nearby.SelectionChanged += lbx_nearby_SelectionChanged;
         }
 
+#region azure code
 
-       
+        void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // App._PostData = lbx_Posts.SelectedItem as Post;
+            // NavigationService.Navigate(new Uri("/PostView.xaml", UriKind.RelativeOrAbsolute));  
+        }
+
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            try
+            {
+                await RefreshTodoItems();
+                lbx_Posts.SelectionChanged += lbx_Posts_SelectionChanged;
+            }
+            catch (Exception exc)
+            {
+            }
+        }
+        private async Task RefreshTodoItems()
+        {
+            MobileServiceInvalidOperationException exception = null;
+            try
+            {
+                // This code refreshes the entries in the list view by querying the TodoItems table.
+                // The query excludes completed TodoItems
+                items = await todoTable
+                    .Where(todoItem => todoItem.isDeleted == false)
+                    .ToCollectionAsync();
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                exception = e;
+            }
+
+            if (exception != null)
+            {
+                MessageBox.Show("Error Loading Items!");
+            }
+            else
+            {
+                lbx_Posts.ItemsSource = items;
+
+            }
+
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            lbx_Posts.SelectionChanged -= lbx_Posts_SelectionChanged;
+
+        }
+
+
+
+
+
+#endregion
+
         //NearbyPark SelectionChanged Routed Event
         void lbx_nearby_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

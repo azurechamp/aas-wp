@@ -9,6 +9,7 @@ using Microsoft.Phone.Shell;
 using TestingApp.Resources;
 using Microsoft.ApplicationInsights;
 using Microsoft.WindowsAzure.MobileServices;
+using TestingApp.DataModels;
 
 namespace TestingApp
 {
@@ -18,12 +19,15 @@ namespace TestingApp
         /// Allows tracking page views, exceptions and other telemetry through the Microsoft Application Insights service.
         /// </summary>
         public static TelemetryClient TelemetryClient;
-       
-        
+
+
         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://gymnasio.azure-mobile.net/",
-            "hyLxEreGFGZwcHxFQNQmccdTAAbVEa32"
-        );
+        "https://gymnasio.azure-mobile.net/",
+        "hyLxEreGFGZwcHxFQNQmccdTAAbVEa32"
+    );
+
+        public static User _AppUser;
+       public static Post _PostData;
 
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.

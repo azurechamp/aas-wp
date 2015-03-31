@@ -98,7 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\post.cs" />
+    <Compile Include="DataModels\Post.cs" />
     <Compile Include="DataModels\User.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\NearyByJson.cs" />
@@ -127,7 +127,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="DataModels\TodoItem.cs" />
     <Compile Include="Views\PasswordRecovery.xaml.cs">
       <DependentUpon>PasswordRecovery.xaml</DependentUpon>
     </Compile>
