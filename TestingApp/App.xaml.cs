@@ -10,6 +10,7 @@ using TestingApp.Resources;
 using Microsoft.ApplicationInsights;
 using Microsoft.WindowsAzure.MobileServices;
 using TestingApp.DataModels;
+using TestingApp.Models;
 
 namespace TestingApp
 {
@@ -26,10 +27,12 @@ namespace TestingApp
         "hyLxEreGFGZwcHxFQNQmccdTAAbVEa32"
     );
 
+
+
         public static User _AppUser;
        public static Post _PostData;
        public static User _SignUpUser;
-
+       public static Article _SelectedArticle;
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

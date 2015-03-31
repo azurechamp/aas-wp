@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="TestingApp.Views.PasswordRecovery"
+    x:Class="TestingApp.Views.CreatePost"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -28,7 +28,13 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <StackPanel>
+                <TextBlock Text="Title" Style="{StaticResource PhoneTextLargeStyle}"/>
+                <TextBox x:Name="tbl_title"></TextBox>
+                <TextBlock Text="Discription" Style="{StaticResource PhoneTextLargeStyle}"/>
+                <TextBox x:Name="tbl_disc" Height="294"></TextBox>
+                <Button x:Name="btn_createPost" Content="Create Post" Click="btn_createPost_Click" IsEnabled="False"></Button>
+            </StackPanel>
         </Grid>
     </Grid>
 

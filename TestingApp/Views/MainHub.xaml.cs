@@ -38,18 +38,36 @@ namespace TestingApp
             GetNearbyParks();
             GetArticlesData();
 
-
             lbx_nearby.SelectionChanged += lbx_nearby_SelectionChanged;
+        }
+
+
+        void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            App._PostData = lbx_Posts.SelectedItem as Post;
+            NavigationService.Navigate(new Uri("/Views/PostView.xaml", UriKind.RelativeOrAbsolute));
+
+        }
+
+        void lbx_articles_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            App._SelectedArticle = lbx_articles.SelectedItem as Article;
+            NavigationService.Navigate(new Uri("/Views/ViewArticle.xaml", UriKind.Relative));
         }
 
 #region azure code
 
-        void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // App._PostData = lbx_Posts.SelectedItem as Post;
-            // NavigationService.Navigate(new Uri("/PostView.xaml", UriKind.RelativeOrAbsolute));  
-        }
+        //void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    // App._PostData = lbx_Posts.SelectedItem as Post;
+        //    // NavigationService.Navigate(new Uri("/PostView.xaml", UriKind.RelativeOrAbsolute));  
+        //}
 
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            lbx_articles.SelectionChanged -= lbx_articles_SelectionChanged;
+        }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -57,12 +75,14 @@ namespace TestingApp
             tbl_Stars.Text = App._AppUser.Stars +"";
             tbl_HealthPoints.Text = App._AppUser.HealthPoints +"";
             tbl_PetName.Text = App._AppUser.PetName;
-
+            lbx_articles.SelectionChanged += lbx_articles_SelectionChanged;
+        
+           
 
             try
             {
                 await RefreshTodoItems();
-                lbx_Posts.SelectionChanged += lbx_Posts_SelectionChanged;
+              lbx_Posts.SelectionChanged += lbx_Posts_SelectionChanged;
             }
             catch (Exception exc)
             {
@@ -98,6 +118,7 @@ namespace TestingApp
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            lbx_Posts.SelectionChanged-=lbx_Posts_SelectionChanged;
             lbx_Posts.SelectionChanged -= lbx_Posts_SelectionChanged;
 
         }

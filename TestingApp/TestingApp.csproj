@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModels\Comment.cs" />
     <Compile Include="DataModels\Post.cs" />
     <Compile Include="DataModels\User.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -109,6 +110,9 @@
       <DependentUpon>articles_data.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\StorePageView Model.cs" />
+    <Compile Include="Views\CreatePost.xaml.cs">
+      <DependentUpon>CreatePost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExerciseSession.xaml.cs">
       <DependentUpon>ExerciseSession.xaml</DependentUpon>
     </Compile>
@@ -127,8 +131,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\PasswordRecovery.xaml.cs">
-      <DependentUpon>PasswordRecovery.xaml</DependentUpon>
+    <Compile Include="Views\PostView.xaml.cs">
+      <DependentUpon>PostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
@@ -148,6 +152,9 @@
     <Compile Include="Views\UpdateProfile.xaml.cs">
       <DependentUpon>UpdateProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewArticle.xaml.cs">
+      <DependentUpon>ViewArticle.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -157,6 +164,10 @@
     <Page Include="SampleData\articles_data\articles_data.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreatePost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ExerciseSession.xaml">
       <SubType>Designer</SubType>
@@ -174,7 +185,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PasswordRecovery.xaml">
+    <Page Include="Views\PostView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +213,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ViewArticle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="ApplicationInsights.config" />
@@ -213,6 +228,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar1\upload.png" />
+    <Content Include="Assets\AppBar2\share.png" />
     <Content Include="Assets\AppBar\feature.calendar.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
