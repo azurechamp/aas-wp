@@ -13,7 +13,7 @@
       <Capability Name="ID_CAP_MAP" />
     </Capabilities>
     <Tasks>
-      <DefaultTask Name="_default" NavigationPage="Views/MainHub.xaml" />
+      <DefaultTask Name="_default" NavigationPage="Login.xaml" />
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="TestingAppToken" TaskName="_default">

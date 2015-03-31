@@ -53,6 +53,12 @@ namespace TestingApp
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+
+            tbl_Stars.Text = App._AppUser.Stars +"";
+            tbl_HealthPoints.Text = App._AppUser.HealthPoints +"";
+            tbl_PetName.Text = App._AppUser.PetName;
+
+
             try
             {
                 await RefreshTodoItems();
@@ -118,7 +124,7 @@ namespace TestingApp
             
         }
 
-        #region JSON data
+ #region JSON data
         void GetArticlesData() 
         {
             try
@@ -189,5 +195,12 @@ namespace TestingApp
             lbx_nearby.ItemsSource = obs_NearbyParks;
         }
         #endregion
+
+       
+
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/Calander.xaml", UriKind.Relative));
+        }
     }
 }

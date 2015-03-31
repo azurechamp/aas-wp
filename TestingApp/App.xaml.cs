@@ -28,6 +28,7 @@ namespace TestingApp
 
         public static User _AppUser;
        public static Post _PostData;
+       public static User _SignUpUser;
 
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.

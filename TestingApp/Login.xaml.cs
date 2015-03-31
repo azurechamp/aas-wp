@@ -73,7 +73,7 @@ namespace TestingApp
             {
                 MessageBox.Show("Login Successful");
                 MessageBox.Show(App._AppUser.Id);
-                NavigationService.Navigate(new Uri("/LandingPage.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Views/MainHub.xaml", UriKind.Relative));
                 _userExist = false;
             }
         }

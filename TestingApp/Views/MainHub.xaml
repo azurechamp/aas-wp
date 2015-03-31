@@ -38,20 +38,25 @@
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="ItemTemplate">
-        	<Grid Height="342" Width="208" Background="#FFFF8000" Margin="0,10,10,0">
-        		<Rectangle Fill="#FF3C3C3C" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="214"/>
+            <Grid Height="342" Width="208" Background="#FFFF8000" Margin="0,10,10,0">
+                <Rectangle Fill="#FF3C3C3C" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="214"/>
                 <Image Source="{Binding image}" HorizontalAlignment="Left" Width="199" Margin="5,0,0,208" Stretch="UniformToFill"/>
                 <TextBlock x:Name="title" Text="{Binding title}" Foreground="White" FontSize="18.667" TextWrapping="Wrap" FontWeight="Bold" Margin="6,138,3,153"/>
-        		<TextBlock x:Name="source" Text="{Binding source}" FontSize="13.333" Foreground="#FF323232" Margin="5,191,4,136" FontWeight="Bold"/>
-        		<TextBlock x:Name="disc" Text="{Binding disc}" TextWrapping="Wrap" Foreground="#FF464646" TextTrimming="WordEllipsis" Margin="6,221,4,0"/>
-        	</Grid>
+                <TextBlock x:Name="source" Text="{Binding source}" FontSize="13.333" Foreground="#FF323232" Margin="5,191,4,136" FontWeight="Bold"/>
+                <TextBlock x:Name="disc" Text="{Binding disc}" TextWrapping="Wrap" Foreground="#FF464646" TextTrimming="WordEllipsis" Margin="6,221,4,0"/>
+            </Grid>
         </DataTemplate>
         <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
-        	<toolkit:WrapPanel/>
+            <toolkit:WrapPanel/>
         </ItemsPanelTemplate>
 
 
     </phone:PhoneApplicationPage.Resources>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/feature.calendar.png" Text="schedule" Click="ApplicationBarIconButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 
 
@@ -71,42 +76,9 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent" >
         <!--Pivot Control-->
-        <phone:Pivot Title="GYMNASIO">
+        <Rectangle Fill="#FF1F1F1F" HorizontalAlignment="Left" Height="28" Stroke="Black" VerticalAlignment="Top" Width="480"/>
+        <phone:Pivot Title="" Margin="0,33,0,0">
 
-            <phone:PivotItem x:Name="Community" Header="community">
-                <Grid>
-                <!--Yaha par Xaml copy karni ha -Abeer-->
-                    <ListBox x:Name="lbx_Posts">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding PostTitle }" Style="{StaticResource PhoneTextLargeStyle}" ></TextBlock>
-                                    <TextBlock Text="{Binding PostDisc}" Style="{StaticResource PhoneTextNormalStyle}" Height="76" Foreground="#FF898989" TextWrapping="Wrap" ></TextBlock>
-                                    <Rectangle Height="7" Fill="#FFFBC50B"></Rectangle>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-
-                    </ListBox>
-                    
-
-
-                </Grid>
-            </phone:PivotItem>
-
-
-            <phone:PivotItem x:Name="Articles" Header="tips+articles">
-                <Grid>
-                	<ListBox x:Name="lbx_articles" HorizontalAlignment="Left" Height="569" ItemTemplate="{StaticResource ItemTemplate}"  Margin="10,24,0,0" VerticalAlignment="Top" Width="436" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/></Grid>
-            </phone:PivotItem>
-
-            <phone:PivotItem x:Name="NearBy" Header="nearby">
-                <Grid>
-                    <!--Here is the View of NearbyParks-->
-                    <ListBox x:Name="lbx_nearby" HorizontalAlignment="Left" Height="593" ItemTemplate="{StaticResource veneTemplate}"  Margin="10,0,0,0" VerticalAlignment="Top" Width="436"/>
-
-                </Grid>
-            </phone:PivotItem>
             <phone:PivotItem x:Name="pvt_launchingpad" Header="Launch Pad">
                 <Grid>
                     <Button Content="click" Margin="203,277,134,239">
@@ -119,8 +91,52 @@
 
                 </Grid>
             </phone:PivotItem>
+            <phone:PivotItem x:Name="Articles" Header="tips+articles">
+                <Grid>
+                    <ListBox x:Name="lbx_articles" HorizontalAlignment="Left" Height="569" ItemTemplate="{StaticResource ItemTemplate}"  Margin="10,24,0,0" VerticalAlignment="Top" Width="436" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
+                </Grid>
+            </phone:PivotItem>
+            <phone:PivotItem x:Name="NearBy" Header="nearby">
+                <Grid>
+                    <!--Here is the View of NearbyParks-->
+                    <ListBox x:Name="lbx_nearby" HorizontalAlignment="Left" Height="593" ItemTemplate="{StaticResource veneTemplate}"  Margin="10,0,0,0" VerticalAlignment="Top" Width="436"/>
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem x:Name="Community" Header="community">
+                <Grid>
+                    <!--Yaha par Xaml copy karni ha -Abeer-->
+                    <ListBox x:Name="lbx_Posts">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding PostTitle}" Style="{StaticResource PhoneTextLargeStyle}" />
+                                    <TextBlock Text="{Binding PostDisc}" Style="{StaticResource PhoneTextNormalStyle}" Height="76" Foreground="#FF898989" TextWrapping="Wrap" />
+                                    <Rectangle Height="7" Fill="#FFFBC50B"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+
+
+
+                </Grid>
+            </phone:PivotItem>
 
         </phone:Pivot>
+        <TextBlock x:Name="tbl_Stars" HorizontalAlignment="Left" Margin="423,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="47"/>
+        <TextBlock x:Name="tbl_PetName" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="147" FontWeight="Bold">
+        	<i:Interaction.Triggers>
+        		<i:EventTrigger EventName="MouseLeftButtonDown">
+        			<ec:NavigateToPageAction TargetPage="/Views/Profile.xaml"/>
+        		</i:EventTrigger>
+        	</i:Interaction.Triggers>
+        </TextBlock>
+        <TextBlock x:Name="tbl_HealthPoints" HorizontalAlignment="Left" Margin="357,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="37"/>
+        <TextBlock HorizontalAlignment="Left" Margin="331,0,0,0" TextWrapping="Wrap" Text="❤" VerticalAlignment="Top" Height="28" Width="26" Foreground="#FFFF4545"/>
+        <TextBlock HorizontalAlignment="Left" Margin="397,0,0,0" TextWrapping="Wrap" Text=" ✩" VerticalAlignment="Top" Height="28" Width="26" Foreground="#FFFFE800"/>
     </Grid>
 
 </phone:PhoneApplicationPage>
