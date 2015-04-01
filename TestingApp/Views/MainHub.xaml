@@ -213,7 +213,7 @@
         <TextBlock x:Name="tbl_PetName" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="147" FontWeight="Bold">
             <i:Interaction.Triggers>
 				<i:EventTrigger EventName="MouseLeftButtonDown">
-					<ec:NavigateToPageAction TargetPage="/Views/Profile.xaml"/>
+					<ec:NavigateToPageAction TargetPage="/Views/UpdateProfile.xaml"/>
 				</i:EventTrigger>
 			</i:Interaction.Triggers>
         </TextBlock>

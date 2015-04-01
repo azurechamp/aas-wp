@@ -16,5 +16,18 @@ namespace TestingApp.Views
         {
             InitializeComponent();
         }
+        protected  override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            tbx_Name.Text = App._AppUser.Name;
+            tbx_Age.Text = App._AppUser.Age + "";
+            tbx_Password.Text = App._AppUser.Password + "";
+            tbx_Email.Text = App._AppUser.Email;
+            tbx_UserName.Text = App._AppUser.UserName;
+            tbx_Weight.Text = App._AppUser.Weight + "";
+            tbx_Height.Text = App._AppUser.Height + "";
+            tbx_PetName.Text = App._AppUser.PetName;
+            tbx_Question.Text = App._AppUser.Question;
+            tbx_Answer.Text = App._AppUser.Answer;
+        }
     }
 }

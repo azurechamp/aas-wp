@@ -1,11 +1,12 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="TestingApp.Views.UpdateProfile"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    x:Class="TestingApp.Views.UpdateProfile"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -22,12 +23,41 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="current profile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="Name" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Name"/>
+                    <TextBlock Text="User Name" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_UserName"/>
+                    <TextBlock Text="Email" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Email"/>
+                    <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Password"/>
+                    <TextBlock Text="Age" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Age"/>
+                    <TextBlock Text="Height" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Height"/>
+                    <TextBlock Text="Weight" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Weight"/>
+                    <TextBlock Text="Pet Name" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_PetName"/>
+                    <TextBlock Text="Question" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Question"/>
+                    <TextBlock Text="Answer" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Answer"/>
+                    <Button  Height="95" Width="420" Content="Edit Profile" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <ec:NavigateToPageAction TargetPage="/Views/Profile.xaml"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
 
         </Grid>
     </Grid>
