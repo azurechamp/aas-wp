@@ -147,7 +147,7 @@ namespace TestingApp.Views
                 {
                     points = 300;
                 }
-                App.SessionData = new Session { AverageSpeed = paceLabel.Text , Calories = caloriesLabel.Text , Distance = distanceLabel.Text , StartTime = _azureStartTime , EndTime = _azureEndTime , Pace = paceLabel.Text , SessionBy = App._AppUser.Id , Points=  points.ToString() };
+                App.SessionData = new Session { AverageSpeed = paceLabel.Text , Calories = caloriesLabel.Text , Distance = distanceLabel.Text , StartTime = _azureStartTime , EndTime = _azureEndTime , Pace = paceLabel.Text , SessionBy = App._AppUser.Id , Points=  points.ToString() , ExerciseType = App.ExcerciseType };
                 try
                 {
                     await InsertTodoItem(App.SessionData);

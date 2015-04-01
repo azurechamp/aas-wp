@@ -95,7 +95,9 @@
             		HorizontalAlignment="Center" Margin="306,108,77,100" FontWeight="Bold" Foreground="#FF0C0C0C" Width="73"/>
                         <Button  IsEnabled="False" Content="Start"
                         	Click="StartButton_Click"
-                        	x:Name="StartButton" Margin="164,127,179,0" RenderTransformOrigin="0.5,0.5" Style="{StaticResource RoundButtonStart}"/>
+                                 Height="120"
+                                 Width="120"
+                        	x:Name="StartButton" Margin="160,116,176,0" RenderTransformOrigin="0.5,0.5" Style="{StaticResource RoundButtonStart}"/>
 
                     </Grid>
                     <Rectangle Fill="#B2F4F4F5" HorizontalAlignment="Left" Height="276" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="446"/>

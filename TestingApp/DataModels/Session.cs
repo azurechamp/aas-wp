@@ -36,6 +36,9 @@ namespace TestingApp.DataModels
         [JsonProperty(PropertyName = "endtime")]
         public string EndTime { get; set; }
 
+        [JsonProperty(PropertyName = "exercisetype")]
+        public string ExerciseType { get; set; }
+
         [JsonProperty(PropertyName = "_deleted")]
         public bool isDeleted { get; set; }
   
