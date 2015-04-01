@@ -42,6 +42,23 @@
 <!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot" Background="Transparent">
 		<!--Pivot Control-->
+		<Popup x:Name="BuyItemPopUp" Margin="10,0,0,165" HorizontalAlignment="Left" Width="470">
+			<Grid Height="470" Width="459" Background="#FFFFD100">
+				<TextBlock x:Name="tbl_Stars_Copy" HorizontalAlignment="Left" Margin="151,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="72" FontSize="29.333" FontWeight="Bold" Foreground="#FF4D4D4D"/>
+				<TextBlock x:Name="tbl_HealthPoints_Copy" HorizontalAlignment="Left" Margin="281,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="68" FontSize="29.333" FontWeight="Bold" Foreground="#FF4D4D4D"/>
+				<TextBlock HorizontalAlignment="Left" Margin="233,357,0,0" TextWrapping="Wrap" Text="❤" VerticalAlignment="Top" Height="47" Width="48" Foreground="#FFFF4545" FontSize="32"/>
+				<TextBlock HorizontalAlignment="Left" Margin="101,352,0,0" TextWrapping="Wrap" Text=" ✩" VerticalAlignment="Top" Height="47" Width="45" Foreground="#FFFF1700" FontSize="32"/>
+				<Button IsEnabled="False" x:Name="btn_buy" Content="Buy" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Width="134" Background="#FF3A8F12" Click="buyItem"/>
+				<Button Content="Cancel" HorizontalAlignment="Left" Margin="313,393,0,0" VerticalAlignment="Top" Width="132" Background="#FFD33434" Click="closePopUp"/>
+				<Rectangle HorizontalAlignment="Left" Height="265" Margin="99,78,0,0" VerticalAlignment="Top" Width="250" RadiusY="29" RadiusX="29" Fill="#FF4D4D4D"/>
+				<Image x:Name="img_prod" HorizontalAlignment="Left" Height="220" Margin="115,99,0,0" VerticalAlignment="Top" Width="220" Stretch="UniformToFill"/>
+				<Rectangle Fill="#FF4D4D4D" HorizontalAlignment="Left" Height="69" Margin="-4,0,0,0" VerticalAlignment="Top" Width="463"/>
+				<TextBlock x:Name="tbl_prodtitle" HorizontalAlignment="Left" Height="59" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" FontSize="40" FontWeight="Bold" Foreground="#FFFFD100"/>
+							
+			</Grid>
+		</Popup>
+							    
+		<!--Pivot Control-->
 		<phone:Pivot Title="STORE">
 			<!--Pivot item one-->
 
@@ -54,12 +71,16 @@
 			</phone:PivotItem>
 			<phone:PivotItem Header="drinks">
 				<Grid>
-					<ListBox  HorizontalAlignment="Left" Height="583" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding obs_Drink}" Margin="10,10,0,0" VerticalAlignment="Top" Width="446" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
+					<ListBox  x:Name="lbx_drinks" HorizontalAlignment="Left" Height="583" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding obs_Drink}" Margin="10,10,0,0" VerticalAlignment="Top" Width="446" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
 							    
             	</Grid>
 			</phone:PivotItem>
 		
 		</phone:Pivot>
-	</Grid>
+        <TextBlock x:Name="tbl_Stars" HorizontalAlignment="Left" Margin="423,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="47"/>
+        <TextBlock x:Name="tbl_HealthPoints" HorizontalAlignment="Left" Margin="357,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="37"/>
+        <TextBlock HorizontalAlignment="Left" Margin="331,0,0,0" TextWrapping="Wrap" Text="❤" VerticalAlignment="Top" Height="28" Width="26" Foreground="#FFFF4545"/>
+        <TextBlock HorizontalAlignment="Left" Margin="397,0,0,0" TextWrapping="Wrap" Text=" ✩" VerticalAlignment="Top" Height="28" Width="26" Foreground="#FFFFE800"/>
+    </Grid>
     
 </phone:PhoneApplicationPage>

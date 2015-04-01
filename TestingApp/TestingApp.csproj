@@ -257,6 +257,7 @@
     <Content Include="Images\Skating.png" />
     <Content Include="Images\Skiing.png" />
     <Content Include="Images\walking.png" />
+    <Content Include="ReadMe.Coding4Fun.Toolkit.txt" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
@@ -271,6 +272,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\..\..\..\..\Downloads\Coding4Fun.Toolkit (Windows Phone 8)\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ApplicationInsights">
       <HintPath>..\packages\Microsoft.ApplicationInsights.0.13.2-build00132\lib\wp8\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
