@@ -230,6 +230,7 @@
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBar1\upload.png" />
     <Content Include="Assets\AppBar2\share.png" />
+    <Content Include="Assets\AppBar\favs.addto.png" />
     <Content Include="Assets\AppBar\feature.calendar.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -249,6 +250,11 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\cyclign.png" />
+    <Content Include="Images\running.png" />
+    <Content Include="Images\Skating.png" />
+    <Content Include="Images\Skiing.png" />
+    <Content Include="Images\walking.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
@@ -269,6 +275,7 @@
     <Reference Include="Microsoft.ApplicationInsights.Extensibility.Windows">
       <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsPhone.0.13.2-build00132\lib\wp8\Microsoft.ApplicationInsights.Extensibility.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Controls" />
     <Reference Include="Microsoft.Expression.Interactions, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
@@ -307,7 +314,7 @@
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Folder Include="SampleData\ExerciseData\ExerciseData_Files\" />
   </ItemGroup>
   <ItemGroup>
     <DesignTimeOnly Include="SampleData\articles_data\articles_data.xsd" />

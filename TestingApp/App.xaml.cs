@@ -33,6 +33,7 @@ namespace TestingApp
        public static Post _PostData;
        public static User _SignUpUser;
        public static Article _SelectedArticle;
+       public static string ExcerciseType; 
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

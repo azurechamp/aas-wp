@@ -21,7 +21,7 @@ namespace TestingApp
     public partial class MainHub : PhoneApplicationPage
     { 
         
-#region Decrarations
+        #region Decrarations
 
         ObservableCollection<vene> obs_NearbyParks = new ObservableCollection<vene>();
         ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
@@ -31,17 +31,14 @@ namespace TestingApp
 
 #endregion
        
-
         public MainHub()
         {
             InitializeComponent();
             GetNearbyParks();
             GetArticlesData();
-
-            lbx_nearby.SelectionChanged += lbx_nearby_SelectionChanged;
         }
 
-
+        #region SelectionChanged
         void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             App._PostData = lbx_Posts.SelectedItem as Post;
@@ -55,47 +52,30 @@ namespace TestingApp
             NavigationService.Navigate(new Uri("/Views/ViewArticle.xaml", UriKind.Relative));
         }
 
-#region azure code
-
-        //void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    // App._PostData = lbx_Posts.SelectedItem as Post;
-        //    // NavigationService.Navigate(new Uri("/PostView.xaml", UriKind.RelativeOrAbsolute));  
-        //}
-
-
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
-        {
-            lbx_articles.SelectionChanged -= lbx_articles_SelectionChanged;
-        }
-
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        void lbx_nearby_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            tbl_Stars.Text = App._AppUser.Stars +"";
-            tbl_HealthPoints.Text = App._AppUser.HealthPoints +"";
-            tbl_PetName.Text = App._AppUser.PetName;
-            lbx_articles.SelectionChanged += lbx_articles_SelectionChanged;
-        
-           
+            GeoCoordinate geoCoord = new GeoCoordinate
+            {
+                Latitude = (lbx_nearby.SelectedItem as vene).lat,
+                Longitude = (lbx_nearby.SelectedItem as vene).lng
+            };
+            BingMapsTask bmt = new BingMapsTask();
+            bmt.Center = geoCoord;
+            bmt.SearchTerm = (lbx_nearby.SelectedItem as vene).name;
+            bmt.Show();
 
-            try
-            {
-                await RefreshTodoItems();
-              lbx_Posts.SelectionChanged += lbx_Posts_SelectionChanged;
-            }
-            catch (Exception exc)
-            {
-            }
         }
+#endregion
+
+        #region azure code
+
         private async Task RefreshTodoItems()
         {
             MobileServiceInvalidOperationException exception = null;
             try
             {
-                // This code refreshes the entries in the list view by querying the TodoItems table.
-                // The query excludes completed TodoItems
-                items = await todoTable
+                    items = await todoTable
                     .Where(todoItem => todoItem.isDeleted == false)
                     .ToCollectionAsync();
             }
@@ -116,36 +96,43 @@ namespace TestingApp
 
         }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            lbx_Posts.SelectionChanged-=lbx_Posts_SelectionChanged;
-            lbx_Posts.SelectionChanged -= lbx_Posts_SelectionChanged;
-
-        }
-
-
-
-
-
+     
 #endregion
 
-        //NearbyPark SelectionChanged Routed Event
-        void lbx_nearby_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        #region LifeCycle Events
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            
-            GeoCoordinate geoCoord = new GeoCoordinate
-            {
-                 Latitude =(lbx_nearby.SelectedItem as vene).lat,
-                 Longitude = (lbx_nearby.SelectedItem as vene).lng
-            };
-          BingMapsTask bmt = new BingMapsTask();
-          bmt.Center = geoCoord;
-          bmt.SearchTerm = (lbx_nearby.SelectedItem as vene).name;
-          bmt.Show();
-            
+            //Selection Changed Route Detached
+            lbx_articles.SelectionChanged -= lbx_articles_SelectionChanged;
+            lbx_nearby.SelectionChanged -= lbx_nearby_SelectionChanged;
+            lbx_Posts.SelectionChanged -= lbx_Posts_SelectionChanged;
         }
 
- #region JSON data
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+            tbl_Stars.Text = App._AppUser.Stars + "";
+            tbl_HealthPoints.Text = App._AppUser.HealthPoints + "";
+            tbl_PetName.Text = App._AppUser.PetName;
+
+            //Selection Changed Route Attached
+            lbx_articles.SelectionChanged += lbx_articles_SelectionChanged;
+            lbx_nearby.SelectionChanged += lbx_nearby_SelectionChanged;
+            lbx_Posts.SelectionChanged += lbx_Posts_SelectionChanged;
+
+
+            try
+            {
+                await RefreshTodoItems();
+            }
+            catch (Exception exc)
+            {
+            }
+
+        }
+        #endregion
+
+        #region JSON data
         void GetArticlesData() 
         {
             try
@@ -217,11 +204,60 @@ namespace TestingApp
         }
         #endregion
 
-       
-
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/Calander.xaml", UriKind.Relative));
         }
+
+        private void petStoreNavigation(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/Store.xaml", UriKind.Relative));
+     
+        }
+
+        private void postIInCommunityNavigation(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/CreatePost.xaml", UriKind.Relative));
+        }
+
+        #region Exercise Type Tap
+        
+        
+        private void img_cycling_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            App.ExcerciseType = "Cycling";
+            NavigationService.Navigate(new Uri("/Views/ExerciseSession.xaml", UriKind.Relative));
+        }
+
+        private void img_running_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            App.ExcerciseType = "Running";
+            NavigationService.Navigate(new Uri("/Views/ExerciseSession.xaml", UriKind.Relative));
+        
+        }
+
+        private void img_skating_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            App.ExcerciseType = "Skating";
+            NavigationService.Navigate(new Uri("/Views/ExerciseSession.xaml", UriKind.Relative));
+        
+        }
+
+        private void img_sking_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            App.ExcerciseType = "Sking";
+            NavigationService.Navigate(new Uri("/Views/ExerciseSession.xaml", UriKind.Relative));
+        
+        }
+
+        private void img_walk_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            App.ExcerciseType = "Walk";
+            NavigationService.Navigate(new Uri("/Views/ExceriseSession.xaml", UriKind.Relative));
+        
+        }
+
+        #endregion
+    
     }
 }

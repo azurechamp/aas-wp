@@ -22,10 +22,17 @@ namespace TestingApp.ViewModels
 
         public void GetJson() 
         {
-            WebClient webClient = new WebClient();
-            webClient.DownloadStringAsync(new Uri("http://hello987.azurewebsites.net/store.html"));
-            webClient.DownloadStringCompleted += webClient_DownloadStringCompleted;
-          
+            try
+            {
+                WebClient webClient = new WebClient();
+                webClient.DownloadStringAsync(new Uri("http://hello987.azurewebsites.net/store.html"));
+                webClient.DownloadStringCompleted += webClient_DownloadStringCompleted;
+            }
+            catch (Exception exc) 
+            {
+            
+            
+            }
         }
         void webClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
