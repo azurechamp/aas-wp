@@ -29,11 +29,14 @@ namespace TestingApp
 
 
 
-        public static User _AppUser;
+       public static User _AppUser;
        public static Post _PostData;
        public static User _SignUpUser;
        public static Article _SelectedArticle;
-       public static string ExcerciseType; 
+       public static string ExcerciseType;
+       public static Session SessionData;
+       public static TimeSpan SessionTime;
+       public static bool IsSessionDataAvailable = false;
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

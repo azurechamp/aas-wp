@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="DataModels\Comment.cs" />
     <Compile Include="DataModels\Post.cs" />
+    <Compile Include="DataModels\Session.cs" />
     <Compile Include="DataModels\User.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\NearyByJson.cs" />

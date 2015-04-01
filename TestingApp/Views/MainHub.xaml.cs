@@ -115,6 +115,16 @@ namespace TestingApp
             tbl_HealthPoints.Text = App._AppUser.HealthPoints + "";
             tbl_PetName.Text = App._AppUser.PetName;
 
+            if (App.IsSessionDataAvailable == true)
+            {
+                tbl_avgspeed.Text = App.SessionData.AverageSpeed;
+                tbl_calories.Text = App.SessionData.Calories;
+                tbl_distance.Text = App.SessionData.Distance;
+                tbl_HealthPoints.Text = App.SessionData.Points;
+                tbl_pace.Text = App.SessionData.Pace;
+                tbl_time.Text = App.SessionTime.ToString(@"hh\:mm\:ss");
+            }
+            
             //Selection Changed Route Attached
             lbx_articles.SelectionChanged += lbx_articles_SelectionChanged;
             lbx_nearby.SelectionChanged += lbx_nearby_SelectionChanged;
@@ -253,7 +263,7 @@ namespace TestingApp
         private void img_walk_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             App.ExcerciseType = "Walk";
-            NavigationService.Navigate(new Uri("/Views/ExceriseSession.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/ExerciseSession.xaml", UriKind.Relative));
         
         }
 
