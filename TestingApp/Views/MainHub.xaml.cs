@@ -15,6 +15,7 @@ using System.Device.Location;
 using Microsoft.WindowsAzure.MobileServices;
 using TestingApp.DataModels;
 using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
 
 namespace TestingApp
 {
@@ -27,17 +28,51 @@ namespace TestingApp
         ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
         private MobileServiceCollection<Post, Post> items;
         private IMobileServiceTable<Post> todoTable = App.MobileService.GetTable<Post>();
-     
+        double latitude, longitude;
 
-#endregion
-       
+
+        #endregion
+
         public MainHub()
         {
             InitializeComponent();
-            GetNearbyParks();
+            
             GetArticlesData();
+            GetLocation();
         }
 
+        #region LOCATION
+
+        private async void GetLocation()
+        {
+            Geolocator geolocator = new Geolocator();
+            geolocator.DesiredAccuracyInMeters = 50;
+
+            try
+            {
+                Geoposition geoposition = await geolocator.GetGeopositionAsync(
+                    maximumAge: TimeSpan.FromMinutes(5),
+                    timeout: TimeSpan.FromSeconds(10)
+                    );
+
+                latitude = geoposition.Coordinate.Latitude;
+                longitude = geoposition.Coordinate.Longitude;
+                GetNearbyParks();
+            }
+            catch (Exception ex)
+            {
+                if ((uint)ex.HResult == 0x80004004)
+                {
+                    // the application does not have the right capability or the location master switch is off
+                    MessageBox.Show("location  is disabled in phone settings.");
+                }
+                //else
+                {
+                   
+                }
+            }
+        }
+        #endregion
         #region SelectionChanged
         void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -180,7 +215,7 @@ namespace TestingApp
                 WebClient wc_NearByParks = new WebClient();
                
                 //Passing Dummy Location Right Now (3/3/2015)
-                wc_NearByParks.DownloadStringAsync(new Uri("https://api.foursquare.com/v2/venues/search?client_id=4UKK0YO0NDIKPWGOELRGU5TR2PZNQXOLJ3N42KKQRUX0DXLM&client_secret=XW1NITAJESHVCB3PTDPDMXJNALMGDDI21VYMX1Z5GSQWIVBU&v=20130815&ll=40.7,-74&query=park"));
+                wc_NearByParks.DownloadStringAsync(new Uri("https://api.foursquare.com/v2/venues/search?client_id=4UKK0YO0NDIKPWGOELRGU5TR2PZNQXOLJ3N42KKQRUX0DXLM&client_secret=XW1NITAJESHVCB3PTDPDMXJNALMGDDI21VYMX1Z5GSQWIVBU&v=20130815&ll="+latitude+","+longitude+"&query=park"));
                 wc_NearByParks.DownloadStringCompleted += wc_NearByParks_DownloadStringCompleted;
             }
             catch (Exception exc) 
