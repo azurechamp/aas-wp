@@ -179,5 +179,10 @@ namespace TestingApp.Views
 
         }
 
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/MainHub.xaml", UriKind.Relative));
+        }
+
     }
 }

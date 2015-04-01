@@ -230,6 +230,7 @@
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBar1\upload.png" />
+    <Content Include="Assets\AppBar2\Map-Location.png" />
     <Content Include="Assets\AppBar2\share.png" />
     <Content Include="Assets\AppBar\favs.addto.png" />
     <Content Include="Assets\AppBar\feature.calendar.png" />
