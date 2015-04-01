@@ -12,10 +12,13 @@ namespace TestingApp.ViewModels
 {
      public class StorePageView_Model
     {
-         public ObservableCollection<Item> obs_Store { get; set; }
+         public ObservableCollection<Item> obs_Food { get; set; }
+         public ObservableCollection<Item> obs_Drink { get; set; }
+         
         public StorePageView_Model() 
         {
-              obs_Store = new ObservableCollection<Item>();
+              obs_Food = new ObservableCollection<Item>();
+              obs_Drink = new ObservableCollection<Item>();
               GetJson();
         }
 
@@ -39,7 +42,15 @@ namespace TestingApp.ViewModels
             var rootObject = JsonConvert.DeserializeObject<RootStore>(e.Result);
             foreach (Item everyItemInList in rootObject.items) 
             {
-                obs_Store.Add(everyItemInList);
+                if (everyItemInList.tag.Equals("food"))
+                {
+                    obs_Food.Add(everyItemInList);
+                }
+                if (everyItemInList.tag.Equals("drink"))
+                {
+                    obs_Drink.Add(everyItemInList);
+                    
+                }
             }
         }
     }
