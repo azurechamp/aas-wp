@@ -257,8 +257,6 @@
     <Content Include="Images\Skating.png" />
     <Content Include="Images\Skiing.png" />
     <Content Include="Images\walking.png" />
-    <Content Include="ReadMe.Coding4Fun.Toolkit.txt" />
-    <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
