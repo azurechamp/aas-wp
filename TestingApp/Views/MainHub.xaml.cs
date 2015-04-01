@@ -32,15 +32,12 @@ namespace TestingApp
 
 
         #endregion
-
         public MainHub()
         {
             InitializeComponent();
-            
             GetArticlesData();
             GetLocation();
         }
-
         #region LOCATION
 
         private async void GetLocation()
@@ -102,8 +99,7 @@ namespace TestingApp
 
         }
 #endregion
-
-        #region azure code
+        #region Azure Mobile Service Code
 
         private async Task RefreshTodoItems()
         {
@@ -133,7 +129,6 @@ namespace TestingApp
 
      
 #endregion
-
         #region LifeCycle Events
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
@@ -176,7 +171,6 @@ namespace TestingApp
 
         }
         #endregion
-
         #region JSON data
         void GetArticlesData() 
         {
@@ -248,7 +242,7 @@ namespace TestingApp
             lbx_nearby.ItemsSource = obs_NearbyParks;
         }
         #endregion
-
+        #region Appbar Navigations
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/Calander.xaml", UriKind.Relative));
@@ -264,10 +258,10 @@ namespace TestingApp
         {
             NavigationService.Navigate(new Uri("/Views/CreatePost.xaml", UriKind.Relative));
         }
-
+        #endregion
         #region Exercise Type Tap
-        
-        
+
+
         private void img_cycling_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             App.ExcerciseType = "Cycling";
