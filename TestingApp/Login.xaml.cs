@@ -63,7 +63,7 @@ namespace TestingApp
         {
             foreach (User usr in items)
             {
-                if (usr.UserName.Equals(tbx_UserName.Text.Trim()) && usr.Password.Equals(tbx_Password.Text.Trim()))
+                if (usr.UserName.Equals(tbx_UserName.Text.Trim()) && usr.Password.Equals(tbx_Password.Password.Trim()))
                 {
                     _userExist = true;
                     App._AppUser = usr;

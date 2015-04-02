@@ -32,7 +32,7 @@
                 <TextBlock Text="User Name" Style="{StaticResource PhoneTextLargeStyle}"/>
                 <TextBox x:Name="tbx_UserName"/>
                 <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Password"/>
+                <PasswordBox x:Name="tbx_Password"/>
                 <Button x:Name="btn_signIn" Height="95" Width="420" Content="Sign In" Click="btn_signIn_Click" IsEnabled="False"/>
                 <HyperlinkButton Content="Sign Up">
                     <i:Interaction.Triggers>
