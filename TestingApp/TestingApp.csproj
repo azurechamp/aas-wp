@@ -266,6 +266,9 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="berrycocktail.png" />
+    <Content Include="chocomagic.png" />
+    <Content Include="floraltea.png" />
     <Content Include="Images\cyclign.png" />
     <Content Include="Images\leaderboard.png" />
     <Content Include="Images\running.png" />

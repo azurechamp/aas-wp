@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{460c2005-c0fa-490d-bf82-7d7e62f0096f}" Title="TestingApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TestingApp author" Description="Sample description" Publisher="TestingApp" PublisherID="{d1350f30-23f1-4d5b-94c7-d340d089230b}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{460c2005-c0fa-490d-bf82-7d7e62f0096f}" Title="Gymnasio" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TestingApp author" Description="Sample description" Publisher="TestingApp" PublisherID="{d1350f30-23f1-4d5b-94c7-d340d089230b}">
+    <IconPath IsRelative="true" IsResource="false">berrycocktail.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -18,10 +18,10 @@
     <Tokens>
       <PrimaryToken TokenID="TestingAppToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">floraltea.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>TestingApp</Title>
+          <BackgroundImageURI IsRelative="true" IsResource="false">chocomagic.png</BackgroundImageURI>
+          <Title>Gymnasio</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
