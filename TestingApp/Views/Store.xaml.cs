@@ -133,7 +133,10 @@ namespace TestingApp.Views
                 finalHealth = App._AppUser.HealthPoints + float.Parse(selectedItem.health);
                 var usr = new User { Email = App._AppUser.Email, Password = App._AppUser.Password, UserName = App._AppUser.UserName, Age = App._AppUser.Age, Height = App._AppUser.Height, Weight = App._AppUser.Weight, PetName = App._AppUser.PetName, Question = App._AppUser.Question, Answer = App._AppUser.Answer, HealthPoints = finalHealth, Name = App._AppUser.Name, Stars = finalStars, Id = App._AppUser.Id };
                 await UpdateCheckedTodoItem(usr);
-                MessageBox.Show("Item Bought !!! Yepiee! ");
+                MessagePrompt msg = new MessagePrompt();
+                msg.Title = "Yepieee";
+                msg.Body = "You have bought the item!";
+                msg.Show();
                 BuyItemPopUp.IsOpen = false;
             
             }

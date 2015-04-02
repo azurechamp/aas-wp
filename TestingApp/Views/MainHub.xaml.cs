@@ -16,6 +16,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using TestingApp.DataModels;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
+using System.Data.Linq.SqlClient;
 
 namespace TestingApp
 {
@@ -27,6 +28,8 @@ namespace TestingApp
         ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
         private MobileServiceCollection<Post, Post> items;
         private IMobileServiceTable<Post> todoTable = App.MobileService.GetTable<Post>();
+
+        
         double latitude, longitude;
 
 
@@ -36,6 +39,7 @@ namespace TestingApp
             InitializeComponent();
             GetArticlesData();
             GetLocation();
+
         }
         #region LOCATION
 
@@ -300,6 +304,11 @@ namespace TestingApp
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/LeaderBoard.xaml", UriKind.Relative));
+        }
+
+        private void Path_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            lbx_Posts.ItemsSource = items.Where(x => x.PostTitle.Contains(tbx_search.Text));
         }
     
     }
