@@ -56,8 +56,6 @@ namespace TestingApp.Views
             _line.StrokeThickness = 5;
             Map.MapElements.Add(_line);
 
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
             _watcher.Start();
             _watcher.PositionChanged += Watcher_PositionChanged;
         }
