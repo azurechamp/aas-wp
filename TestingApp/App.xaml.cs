@@ -28,7 +28,7 @@ namespace TestingApp
     );
 
 
-
+       public static MobileServiceCollection<User,User> _userData;
        public static User _AppUser;
        public static Post _PostData;
        public static User _SignUpUser;

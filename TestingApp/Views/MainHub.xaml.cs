@@ -21,7 +21,6 @@ namespace TestingApp
 {
     public partial class MainHub : PhoneApplicationPage
     { 
-        
         #region Decrarations
 
         ObservableCollection<vene> obs_NearbyParks = new ObservableCollection<vene>();
@@ -297,6 +296,11 @@ namespace TestingApp
         }
 
         #endregion
+
+        private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/LeaderBoard.xaml", UriKind.Relative));
+        }
     
     }
 }

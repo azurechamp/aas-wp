@@ -60,6 +60,7 @@
             </shell:ApplicationBar.MenuItems>
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/feature.calendar.png" Text="schedule" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/favs.addto.png" Text="pet store" Click="petStoreNavigation"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/leaderboard.png" Text="top users" Click="ApplicationBarIconButton_Click_1"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

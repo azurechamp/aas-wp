@@ -53,6 +53,7 @@ namespace TestingApp
             else
             {
                 btn_signIn.IsEnabled = true;
+                App._userData = items;
             }
 
         }
