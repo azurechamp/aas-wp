@@ -131,7 +131,7 @@ namespace TestingApp.Views
             {
                 finalStars = App._AppUser.Stars - float.Parse(selectedItem.stars);
                 finalHealth = App._AppUser.HealthPoints + float.Parse(selectedItem.health);
-                var usr = new User { Email = App._AppUser.Email, Password = App._AppUser.Password, UserName = App._AppUser.UserName, Age = App._AppUser.Age, Height = App._AppUser.Height, Weight = App._AppUser.Weight, PetName = App._AppUser.PetName, Question = App._AppUser.Question, Answer = App._AppUser.Answer, HealthPoints = App._AppUser.HealthPoints, Name = App._AppUser.Name, Stars = finalStars, Id = App._AppUser.Id };
+                var usr = new User { Email = App._AppUser.Email, Password = App._AppUser.Password, UserName = App._AppUser.UserName, Age = App._AppUser.Age, Height = App._AppUser.Height, Weight = App._AppUser.Weight, PetName = App._AppUser.PetName, Question = App._AppUser.Question, Answer = App._AppUser.Answer, HealthPoints = finalHealth, Name = App._AppUser.Name, Stars = finalStars, Id = App._AppUser.Id };
                 await UpdateCheckedTodoItem(usr);
                 MessageBox.Show("Item Bought !!! Yepiee! ");
                 BuyItemPopUp.IsOpen = false;

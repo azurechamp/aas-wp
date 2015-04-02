@@ -69,14 +69,14 @@
 							    
             	</Grid>
 			</phone:PivotItem>
-			<phone:PivotItem Header="drinks">
-				<Grid>
-					<ListBox  x:Name="lbx_drinks" HorizontalAlignment="Left" Height="583" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding obs_Drink}" Margin="10,10,0,0" VerticalAlignment="Top" Width="446" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
-							    
-            	</Grid>
-			</phone:PivotItem>
-		
-		</phone:Pivot>
+            <phone:PivotItem Header="drinks">
+                <Grid>
+                    <ListBox  x:Name="lbx_drinks" HorizontalAlignment="Left" Height="583" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding obs_Drink}" Margin="10,10,0,0" VerticalAlignment="Top" Width="446" ItemsPanel="{StaticResource ItemsPanelTemplate1}"/>
+
+                </Grid>
+            </phone:PivotItem>
+
+        </phone:Pivot>
         <TextBlock x:Name="tbl_Stars" HorizontalAlignment="Left" Margin="423,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="47"/>
         <TextBlock x:Name="tbl_HealthPoints" HorizontalAlignment="Left" Margin="357,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="37"/>
         <TextBlock HorizontalAlignment="Left" Margin="331,0,0,0" TextWrapping="Wrap" Text="❤" VerticalAlignment="Top" Height="28" Width="26" Foreground="#FFFF4545"/>
