@@ -27,8 +27,6 @@ namespace TestingApp
         "https://gymnasio.azure-mobile.net/",
         "hyLxEreGFGZwcHxFQNQmccdTAAbVEa32"
     );
-
-
        public static MobileServiceCollection<User,User> _userData;
        public static User _AppUser;
        public static Post _PostData;
@@ -37,6 +35,9 @@ namespace TestingApp
        public static string ExcerciseType;
        public static Session SessionData;
        public static TimeSpan SessionTime;
+       public static bool _isAchieved;
+       public static string _nameOfAchi;
+       public static Achievements _achi;
        public static bool IsSessionDataAvailable = false;
 
 

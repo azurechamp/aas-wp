@@ -14,6 +14,7 @@ using System.Windows.Media;
 using Microsoft.WindowsAzure.MobileServices;
 using TestingApp.DataModels;
 using System.Threading.Tasks;
+using Coding4Fun.Toolkit.Controls;
 
 namespace TestingApp.Views
 {
@@ -23,6 +24,12 @@ namespace TestingApp.Views
 
         private MobileServiceCollection<Session, Session> items;
         private IMobileServiceTable<Session> todoTable = App.MobileService.GetTable<Session>();
+        private MobileServiceCollection<Achievements, Achievements> Achitems;
+        private IMobileServiceTable<Achievements> achivTable = App.MobileService.GetTable<Achievements>();
+
+
+
+
         private double _kilometres;
         private long _previousPositionChangeTick;
         private GeoCoordinateWatcher _watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
@@ -70,6 +77,10 @@ namespace TestingApp.Views
                 // This code refreshes the entries in the list view by querying the TodoItems table.
                 // The query excludes completed TodoItems
                 items = await todoTable
+                    .Where(todoItem => todoItem.isDeleted == false)
+                    .ToCollectionAsync();
+
+                Achitems = await achivTable
                     .Where(todoItem => todoItem.isDeleted == false)
                     .ToCollectionAsync();
             }
@@ -135,23 +146,55 @@ namespace TestingApp.Views
                 StartButton.Content = "Start";
 
                 int points = 0;
+
+                /// <---TESTING-->
+                //#region TESTING
+                //if (_kilometres >=0)
+                //{
+                //    points = 100;
+                //    App._isAchieved = true;
+                //    App._nameOfAchi = "Moon Walk";
+
+                //}
+                //#endregion
+
                 if (_kilometres <= 3) 
                 {
                     points = 100;
+                    App._isAchieved = true;
+                    App._nameOfAchi = "Moon Walk";
+
                 }
                 if (_kilometres <= 5)
                 {
                     points = 200;
+                     App._isAchieved = true;
+                     App._nameOfAchi = "Dragon On Fire";
                 }
                 if (_kilometres > 5)
                 {
                     points = 300;
+                    App._isAchieved = true;
+                    App._nameOfAchi = "Rocking Dragon!!";
+
                 }
                 App.SessionData = new Session { AverageSpeed = paceLabel.Text , Calories = caloriesLabel.Text , Distance = distanceLabel.Text , StartTime = _azureStartTime , EndTime = _azureEndTime , Pace = paceLabel.Text , SessionBy = App._AppUser.Id , Points=  points.ToString() , ExerciseType = App.ExcerciseType };
                 try
                 {
+
+                    if(App._isAchieved == true )
+                    {
+                        await InsertAchievement(new Achievements { achTitle = App._nameOfAchi , achDisc = "Gymnasio Achievement : " + App._nameOfAchi , onDistance = _kilometres.ToString() , AchievementBy = App._AppUser.Id  });
+                        
+                        
+                        App._isAchieved = false;
+                    }
                     await InsertTodoItem(App.SessionData);
                     MessageBox.Show("Peeep Peeep !! Your Session is Saved!");
+                    MessagePrompt msgpmpt = new MessagePrompt();
+                    msgpmpt.Title = "Achievement Unlocked";
+                    msgpmpt.Body ="You have unlocked "+ App._nameOfAchi+"\nCONGRATULATIONS!!!!";
+                    msgpmpt.Show();
                     App.IsSessionDataAvailable = true;
                 }
                 catch (Exception exc) 
@@ -168,6 +211,13 @@ namespace TestingApp.Views
                 _azureStartTime = _tempDateTime.ToString();
                 StartButton.Content = "Stop";
             }
+        }
+
+        private async Task InsertAchievement(Achievements todoItem)
+        {
+
+            await achivTable.InsertAsync(todoItem);
+            Achitems.Add(todoItem);
         }
 
         private async Task InsertTodoItem(Session todoItem)

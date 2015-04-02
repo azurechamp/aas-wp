@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModels\Achievements.cs" />
     <Compile Include="DataModels\Comment.cs" />
     <Compile Include="DataModels\Post.cs" />
     <Compile Include="DataModels\Session.cs" />
@@ -336,6 +337,7 @@
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="SampleData\AchievementSample\AchievementSample_Files\" />
     <Folder Include="SampleData\ExerciseData\ExerciseData_Files\" />
   </ItemGroup>
   <ItemGroup>

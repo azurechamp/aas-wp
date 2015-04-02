@@ -24,10 +24,14 @@ namespace TestingApp
     { 
         #region Decrarations
 
-        ObservableCollection<vene> obs_NearbyParks = new ObservableCollection<vene>();
-        ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
+
+        private ObservableCollection<Achievements> obs_achvments = new ObservableCollection<Achievements>();
+        private ObservableCollection<vene> obs_NearbyParks = new ObservableCollection<vene>();
+        private ObservableCollection<Article> obs_Articles = new ObservableCollection<Article>();
         private MobileServiceCollection<Post, Post> items;
         private IMobileServiceTable<Post> todoTable = App.MobileService.GetTable<Post>();
+        private MobileServiceCollection<Achievements, Achievements> Achitems;
+        private IMobileServiceTable<Achievements> achivTable = App.MobileService.GetTable<Achievements>();
 
         
         double latitude, longitude;
@@ -77,14 +81,29 @@ namespace TestingApp
         void lbx_Posts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             App._PostData = lbx_Posts.SelectedItem as Post;
-            NavigationService.Navigate(new Uri("/Views/PostView.xaml", UriKind.RelativeOrAbsolute));
+            if (lbx_Posts.SelectedIndex == -1) 
+            {
+            
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Views/PostView.xaml", UriKind.RelativeOrAbsolute));
+                lbx_Posts.SelectedIndex = -1;
+            }
 
         }
 
         void lbx_articles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             App._SelectedArticle = lbx_articles.SelectedItem as Article;
-            NavigationService.Navigate(new Uri("/Views/ViewArticle.xaml", UriKind.Relative));
+            if (lbx_articles.SelectedIndex == -1)
+            {
+             }
+            else 
+            {
+                NavigationService.Navigate(new Uri("/Views/ViewArticle.xaml", UriKind.Relative));
+                lbx_articles.SelectedIndex = -1;  
+            }
         }
 
         void lbx_nearby_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -112,6 +131,10 @@ namespace TestingApp
                     items = await todoTable
                     .Where(todoItem => todoItem.isDeleted == false)
                     .ToCollectionAsync();
+
+                    Achitems = await achivTable
+                .Where(todoItem => todoItem.isDeleted == false)
+                  .ToCollectionAsync();
             }
             catch (MobileServiceInvalidOperationException e)
             {
@@ -125,7 +148,16 @@ namespace TestingApp
             else
             {
                 lbx_Posts.ItemsSource = items;
+                foreach (Achievements ach in Achitems) 
+                {
+                    if (ach.AchievementBy.Equals(App._AppUser.Id)) 
+                    {
+                        obs_achvments.Add(ach);
+                    }
+                }
 
+
+                lbx_Achv.ItemsSource = obs_achvments;
             }
 
         }
@@ -139,6 +171,7 @@ namespace TestingApp
             lbx_articles.SelectionChanged -= lbx_articles_SelectionChanged;
             lbx_nearby.SelectionChanged -= lbx_nearby_SelectionChanged;
             lbx_Posts.SelectionChanged -= lbx_Posts_SelectionChanged;
+
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)

@@ -137,6 +137,7 @@ namespace TestingApp.Views
                 msg.Title = "Yepieee";
                 msg.Body = "You have bought the item!";
                 msg.Show();
+                App._AppUser = usr;
                 BuyItemPopUp.IsOpen = false;
             
             }
