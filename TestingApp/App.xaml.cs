@@ -12,6 +12,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using TestingApp.DataModels;
 using TestingApp.Models;
 
+
 namespace TestingApp
 {
     public partial class App : Application
@@ -37,6 +38,9 @@ namespace TestingApp
        public static Session SessionData;
        public static TimeSpan SessionTime;
        public static bool IsSessionDataAvailable = false;
+
+
+       
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

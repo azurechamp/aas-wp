@@ -36,7 +36,7 @@
                 <TextBlock Text="Email" Style="{StaticResource PhoneTextLargeStyle}"/>
                 <TextBox x:Name="tbx_Email"></TextBox>
                 <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Password"></TextBox>
+                <PasswordBox x:Name="tbx_Password"></PasswordBox>
                 <TextBlock Text="Age" Style="{StaticResource PhoneTextLargeStyle}"/>
                 <TextBox x:Name="tbx_Age"></TextBox>
                 <TextBlock Text="Height" Style="{StaticResource PhoneTextLargeStyle}"/>

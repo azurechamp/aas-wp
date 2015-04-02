@@ -72,7 +72,7 @@ namespace TestingApp.Views
 
         private async void btn_signUp_Click(object sender, RoutedEventArgs e)
         {
-            var usr = new User { Email = tbx_Email.Text, Password = tbx_Password.Text, UserName = tbx_UserName.Text, Age = float.Parse(tbx_Age.Text, CultureInfo.InvariantCulture.NumberFormat), Height = float.Parse(tbx_Height.Text, CultureInfo.InvariantCulture.NumberFormat), Weight =  float.Parse(tbx_Weight.Text, CultureInfo.InvariantCulture.NumberFormat), PetName = tbx_PetName.Text, Question = tbx_Question.Text, Answer = tbx_Answer.Text, HealthPoints = 100f, Name = tbx_Name.Text, Stars = 250f };
+            var usr = new User { Email = tbx_Email.Text, Password = tbx_Password.Password, UserName = tbx_UserName.Text, Age = float.Parse(tbx_Age.Text, CultureInfo.InvariantCulture.NumberFormat), Height = float.Parse(tbx_Height.Text, CultureInfo.InvariantCulture.NumberFormat), Weight =  float.Parse(tbx_Weight.Text, CultureInfo.InvariantCulture.NumberFormat), PetName = tbx_PetName.Text, Question = tbx_Question.Text, Answer = tbx_Answer.Text, HealthPoints = 100f, Name = tbx_Name.Text, Stars = 250f };
             await InsertTodoItem(usr);
             
         }

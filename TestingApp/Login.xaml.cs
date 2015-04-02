@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using TestingApp.DataModels;
+using Coding4Fun.Toolkit.Controls;
 
 namespace TestingApp
 {
@@ -48,7 +49,7 @@ namespace TestingApp
 
             if (exception != null)
             {
-                MessageBox.Show("Error Loading Items!");
+                MessageBox.Show("Gymnasio and Internet are unable to connect","Connection", MessageBoxButton.OK);
             }
             else
             {
@@ -72,11 +73,25 @@ namespace TestingApp
 
             if (_userExist == true)
             {
-                MessageBox.Show("Login Successful");
-                MessageBox.Show(App._AppUser.Id);
+
                 NavigationService.Navigate(new Uri("/Views/MainHub.xaml", UriKind.Relative));
                 _userExist = false;
             }
+            else 
+            {
+                MessageCustom("Whoops!!", "User with this username and password \ndoes not exists");
+                tbx_Password.Password = "";
+                tbx_UserName.Text = "";
+      
+            }
+        }
+
+        public void MessageCustom(string title, string details)
+        {
+            MessagePrompt msg = new MessagePrompt();
+            msg.Title = title;
+            msg.Body = details;
+            msg.Show();
         }
     }
 }
