@@ -117,6 +117,9 @@
     <Compile Include="SampleData\Leaders\Leaders.xaml.cs">
       <DependentUpon>Leaders.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\StorePageView Model.cs" />
     <Compile Include="Views\CreatePost.xaml.cs">
       <DependentUpon>CreatePost.xaml</DependentUpon>
@@ -183,6 +186,10 @@
     <Page Include="SampleData\Leaders\Leaders.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreatePost.xaml">
       <SubType>Designer</SubType>
@@ -256,6 +263,7 @@
     <Content Include="Assets\AppBar2\share.png" />
     <Content Include="Assets\AppBar\favs.addto.png" />
     <Content Include="Assets\AppBar\feature.calendar.png" />
+    <Content Include="Assets\AppBar\feature.settings.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -277,6 +285,7 @@
     <Content Include="berrycocktail.png" />
     <Content Include="chocomagic.png" />
     <Content Include="floraltea.png" />
+    <Content Include="Images\back.png" />
     <Content Include="Images\cyclign.png" />
     <Content Include="Images\leaderboard.png" />
     <Content Include="Images\running.png" />

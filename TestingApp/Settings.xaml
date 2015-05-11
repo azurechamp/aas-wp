@@ -5,8 +5,10 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
-    x:Class="TestingApp.Login"
+    x:Class="TestingApp.Settings"
+
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -24,28 +26,40 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Gymnasio" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF464646"/>
-
-            <TextBlock Text="login" Margin="9,15,0,10" FontSize="33" Foreground="#FF464646" FontWeight="Bold"/>
+            <TextBlock Text="settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="Black"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
-                <TextBlock Text="User Name" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF464646"/>
-                <TextBox x:Name="tbx_UserName"/>
-                <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF464646"/>
-                <PasswordBox x:Name="tbx_Password"/>
-                <Button x:Name="btn_signIn" Height="95" Width="420" Content="Sign In" Click="btn_signIn_Click" IsEnabled="False" Foreground="White" Background="#FF3E3C3C"/>
-                <HyperlinkButton Content="Sign Up" Foreground="#FF464646">
+                <ToggleButton Content="Sound" Background="#FF646464"/>
+                <ToggleButton Content="Miles/Km" Background="#FF646464"/>
+                <Button Content="Edit Profile" Background="Black">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <ec:NavigateToPageAction TargetPage="/Views/SignUp.xaml"/>
+                            <ec:NavigateToPageAction TargetPage="/Views/Profile.xaml"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                </HyperlinkButton>
+                </Button>
+                <Button Content="Change Pet Name" Background="Black">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ec:NavigateToPageAction TargetPage="/Views/Profile.xaml"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="Change Password" Background="Black">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ec:NavigateToPageAction TargetPage="/Views/Profile.xaml"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+
+                <Button Content="Review Application" Background="Black" Click="Button_Click"/>
+                <Button Content="Contact Developer" Background="Black" Click="Button_Click_1"/>
+
             </StackPanel>
         </Grid>
     </Grid>

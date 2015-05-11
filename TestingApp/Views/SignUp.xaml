@@ -14,7 +14,10 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Images/back.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,35 +25,35 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Sign Up" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Sign Up" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="Black"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ScrollViewer>
-            <StackPanel>
-                <TextBlock Text="Name" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Name"></TextBox>
-                <TextBlock Text="User Name" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_UserName"></TextBox>
-                <TextBlock Text="Email" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Email"></TextBox>
-                <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <PasswordBox x:Name="tbx_Password"></PasswordBox>
-                <TextBlock Text="Age" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Age"></TextBox>
-                <TextBlock Text="Height" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Height"></TextBox>
-                <TextBlock Text="Weight" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Weight"></TextBox>
-                <TextBlock Text="Pet Name" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_PetName"></TextBox>
-                <TextBlock Text="Question" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Question"></TextBox>
-                <TextBlock Text="Answer" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBox x:Name="tbx_Answer"></TextBox>
-                <Button x:Name="btn_signUp" Height="95" Width="420" Content="Sign Up" IsEnabled="False" Click="btn_signUp_Click"></Button>
-            </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Name" Style="{StaticResource PhoneTextLargeStyle}" Foreground="Black"/>
+                    <TextBox x:Name="tbx_Name"></TextBox>
+                    <TextBlock Text="User Name" Style="{StaticResource PhoneTextLargeStyle}" Foreground="Black"/>
+                    <TextBox x:Name="tbx_UserName"></TextBox>
+                    <TextBlock Text="Email" Style="{StaticResource PhoneTextLargeStyle}" Foreground="Black"/>
+                    <TextBox x:Name="tbx_Email"></TextBox>
+                    <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}" Foreground="Black"/>
+                    <PasswordBox x:Name="tbx_Password"></PasswordBox>
+                    <TextBlock Text="Age" Style="{StaticResource PhoneTextLargeStyle}" Foreground="Black"/>
+                    <TextBox x:Name="tbx_Age"></TextBox>
+                    <TextBlock Text="Height" Style="{StaticResource PhoneTextLargeStyle}" Foreground="Black"/>
+                    <TextBox x:Name="tbx_Height"></TextBox>
+                    <TextBlock Text="Weight" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Weight"></TextBox>
+                    <TextBlock Text="Pet Name" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_PetName"></TextBox>
+                    <TextBlock Text="Question" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Question"></TextBox>
+                    <TextBlock Text="Answer" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBox x:Name="tbx_Answer"></TextBox>
+                    <Button x:Name="btn_signUp" Height="95" Width="420" Content="Sign Up" IsEnabled="False" Click="btn_signUp_Click" Foreground="#FF9E9E9E"></Button>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
     </Grid>

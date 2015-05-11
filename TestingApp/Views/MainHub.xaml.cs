@@ -342,6 +342,11 @@ namespace TestingApp
         {
             lbx_Posts.ItemsSource = items.Where(x => x.PostTitle.Contains(tbx_search.Text));
         }
+
+        private void ApplicationBarIconButton_Click_2(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Settings.xaml", UriKind.Relative));
+        }
     
     }
 }

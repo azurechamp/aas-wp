@@ -20,7 +20,10 @@
     </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Images/back.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -35,9 +38,9 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ScrollViewer>
                 <StackPanel>
-                    <TextBlock  x:Name="tbl_Article" Text="article" Margin="9,-7,0,0" Style="{StaticResource  PhoneTextExtraLargeStyle}" Height="113" TextWrapping="Wrap"/>
+                    <TextBlock  x:Name="tbl_Article" Text="article" Margin="9,-7,0,0" Style="{StaticResource  PhoneTextExtraLargeStyle}" Height="113" TextWrapping="Wrap" Foreground="Black"/>
 
-                    <TextBlock x:Name="tbl_disc" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap" Foreground="#FF858484"/>
+                    <TextBlock x:Name="tbl_disc" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap" Foreground="#FF4B4949"/>
                 </StackPanel>
             </ScrollViewer>
 

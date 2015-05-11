@@ -15,7 +15,10 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Images/back.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -23,31 +26,31 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="current profile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="current profile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="Black"/>
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ScrollViewer>
                 <StackPanel>
-                    <TextBlock Text="Name" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="Name" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF515151"/>
                     <TextBox x:Name="tbx_Name"/>
-                    <TextBlock Text="User Name" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="User Name" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF515151"/>
                     <TextBox x:Name="tbx_UserName"/>
-                    <TextBlock Text="Email" Style="{StaticResource PhoneTextLargeStyle}"/>
-                    <TextBox x:Name="tbx_Email"/>
-                    <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="Email" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF515151"/>
+                    <TextBox x:Name="tbx_Email" InputScope="EmailSmtpAddress"/>
+                    <TextBlock Text="Password" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF515151"/>
                     <TextBox x:Name="tbx_Password"/>
-                    <TextBlock Text="Age" Style="{StaticResource PhoneTextLargeStyle}"/>
-                    <TextBox x:Name="tbx_Age"/>
-                    <TextBlock Text="Height" Style="{StaticResource PhoneTextLargeStyle}"/>
-                    <TextBox x:Name="tbx_Height"/>
-                    <TextBlock Text="Weight" Style="{StaticResource PhoneTextLargeStyle}"/>
-                    <TextBox x:Name="tbx_Weight"/>
-                    <TextBlock Text="Pet Name" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="Age" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF515151"/>
+                    <TextBox x:Name="tbx_Age" InputScope="Number"/>
+                    <TextBlock Text="Height" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF515151"/>
+                    <TextBox x:Name="tbx_Height" InputScope="Number"/>
+                    <TextBlock Text="Weight"  Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF232323"/>
+                    <TextBox x:Name="tbx_Weight" InputScope="Number"/>
+                    <TextBlock Text="Pet Name" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF232323"/>
                     <TextBox x:Name="tbx_PetName"/>
-                    <TextBlock Text="Question" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="Question" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF232323"/>
                     <TextBox x:Name="tbx_Question"/>
-                    <TextBlock Text="Answer" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="Answer" Style="{StaticResource PhoneTextLargeStyle}" Foreground="#FF232323"/>
                     <TextBox x:Name="tbx_Answer"/>
                     <Button  Height="95" Width="420" Content="Edit Profile" >
                         <i:Interaction.Triggers>

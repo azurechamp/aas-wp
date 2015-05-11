@@ -61,6 +61,8 @@
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/feature.calendar.png" Text="schedule" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/favs.addto.png" Text="pet store" Click="petStoreNavigation"/>
             <shell:ApplicationBarIconButton IconUri="/Images/leaderboard.png" Text="top users" Click="ApplicationBarIconButton_Click_1"/>
+            <shell:ApplicationBarIconButton Click="ApplicationBarIconButton_Click_2" IconUri="/Assets/AppBar/feature.settings.png" Text="settings" />
+
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
@@ -80,10 +82,13 @@
 
 
 
-    <Grid x:Name="LayoutRoot" Background="Transparent" >
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Images/back.png"/>
+        </Grid.Background>
         <!--Pivot Control-->
         <Rectangle Fill="#FF1F1F1F" HorizontalAlignment="Left" Height="28" Stroke="Black" VerticalAlignment="Top" Width="480"/>
-        <phone:Pivot Title="" Margin="0,33,0,0">
+        <phone:Pivot Title="" Margin="0,33,0,0" Foreground="Black">
 
             <phone:PivotItem x:Name="pvt_launchingpad" Header="dashboard">
                 <Grid>
@@ -182,7 +187,7 @@
                                         <Path Data="M32.556919,7.5459137C32.388317,13.155273 31.348522,16.927387 30.031527,19.709999 34.058911,16.967789 37.8205,13.806376 38.374001,7.5459137z M3.3650003,7.5459137C3.9177938,13.806376 7.6801546,16.967789 11.706803,19.709999 10.389719,16.927387 9.349994,13.155274 9.1814569,7.5459137z M20.868891,2.8440046C14.533635,2.8401542 12.059054,5.4313951 12.062254,6.3923125 12.062254,7.3584399 14.532935,9.9443407 20.868891,9.9508705 27.205345,9.9443407 29.676028,7.3584399 29.676028,6.3923125 29.679327,5.4313951 27.204745,2.8401542 20.868891,2.8440046z M20.8699,0C27.67,0,31.0189,2.2226601,32.145199,4.2994399L40.0984,4.2994399C41.004502,4.2994399 41.739601,5.0272799 41.739601,5.9231601 41.739601,15.8814 35.4063,20.076799 30.3177,23.4492 26.156901,26.204399 23.6068,28.0651 23.6068,31.429701L23.6068,34.4688C27.9765,34.954399 31.1875,36.571602 31.1875,38.493401 31.1875,40.7981 26.5684,42.666698 20.8699,42.666698 15.1719,42.666698 10.5528,40.7981 10.5528,38.493401 10.5528,36.571602 13.7637,34.954399 18.133499,34.4688L18.133499,31.429701C18.133499,28.0651 15.5833,26.204399 11.4225,23.4492 6.3339804,20.076799 2.9041269E-07,15.8814 0,5.9231601 2.9041269E-07,5.0272799 0.73506629,4.2994399 1.6413205,4.2994399L9.5957206,4.2994399C10.7213,2.2226601,14.070401,0,20.8699,0z" Stretch="Uniform" Fill="#FFFFFFFF" Margin="8,9,193,134" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False"/>
                                         <TextBlock x:Name="tbl_AchievementName" HorizontalAlignment="Left" Margin="64,11,0,0" TextWrapping="Wrap" Text="{Binding achTitle}" VerticalAlignment="Top" Width="168" FontSize="21"/>
                                     </Grid>
-                                 </DataTemplate>
+                                </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </Grid>
