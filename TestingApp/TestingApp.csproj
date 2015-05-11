@@ -98,6 +98,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CharacterDance.xaml.cs">
+      <DependentUpon>CharacterDance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModels\Achievements.cs" />
     <Compile Include="DataModels\Comment.cs" />
     <Compile Include="DataModels\Post.cs" />
@@ -169,6 +172,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="CharacterDance.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SampleData\articles_data\articles_data.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -351,6 +358,8 @@
     <Resource Include="SampleData\articles_data\articles_data_Files\image05.png" />
     <DesignTimeOnly Include="SampleData\Leaders\Leaders.xsd" />
     <Resource Include="Views\leaderboard2.png" />
+    <Resource Include="Views\PSD_Monster_Creation_Kit_Images1\Shadow.png" />
+    <Resource Include="Views\PSD_Monster_Creation_Kit_Images1\Shadow1.png" />
     <Resource Include="Views\star.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

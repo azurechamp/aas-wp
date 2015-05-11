@@ -59,7 +59,6 @@ namespace TestingApp.Views
 
         private async Task InsertTodoItem(User todoItem)
         {
-
             await todoTable.InsertAsync(todoItem);
             items.Add(todoItem);
 

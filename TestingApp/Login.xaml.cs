@@ -74,7 +74,7 @@ namespace TestingApp
             if (_userExist == true)
             {
 
-                NavigationService.Navigate(new Uri("/Views/MainHub.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/CharacterDance.xaml", UriKind.Relative));
                 _userExist = false;
             }
             else 

@@ -186,8 +186,7 @@ namespace TestingApp
                 tbl_avgspeed.Text = App.SessionData.AverageSpeed;
                 tbl_calories.Text = App.SessionData.Calories;
                 tbl_distance.Text = App.SessionData.Distance;
-                tbl_HealthPoints.Text = App.SessionData.Points;
-                tbl_pace.Text = App.SessionData.Pace;
+               tbl_pace.Text = App.SessionData.Pace;
                 tbl_time.Text = App.SessionTime.ToString(@"hh\:mm\:ss");
             }
             
